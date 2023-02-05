@@ -1,0 +1,12 @@
+# create lnd num
+LNDS=3
+
+# assign port number(lnd1-)
+PORT_LN_START=9735
+PORT_REST_START=8080
+PORT_GRPC_START=10009
+
+# docker compose
+PROJECT_NAME=lndregtest
+INIT_YML="docker-compose-lnds-init.yml"
+LNDS_YML="docker-compose-lnds.yml"

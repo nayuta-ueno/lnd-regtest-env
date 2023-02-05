@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  bitcoind:
+    build:
+      context: "./bitcoind/"
+    volumes:
+      - bitcoind-data:/data/bitcoin
+      - ./bitcoind:/mnt
+    entrypoint: >
+      sh -c '
+        cp /mnt/bitcoin.conf /data/bitcoin/bitcoin.conf &&
+        /bin/bitcoind --datadir=/data/bitcoin'
+    user: $USERID:$GROUPID
+    networks:
+      - lndtestnev-nw
+    ports:
+      - "8332:8332"
+
+volumes:
+  bitcoind-data:
+    driver: local
+
+networks:
+  lndtestnev-nw:
