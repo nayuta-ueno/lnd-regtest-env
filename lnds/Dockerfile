@@ -1,4 +1,4 @@
-FROM lightninglabs/lnd:v0.15.5-beta
+FROM lightninglabs/lnd:v0.16.0-beta
 
 RUN mkdir -p /data/lnd && chmod 0777 -R /data/lnd
 CMD ["lnd"]
